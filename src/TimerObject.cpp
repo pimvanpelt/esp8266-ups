@@ -1,3 +1,9 @@
+//
+// Originally taken from an older version of Aron Barreira's Timer class:
+// https://github.com/aron-bordin/PNG-Arduino-Framework/tree/master/Timer
+// Released to GPL.
+//
+
 #include "TimerObject.h"
 
 TimerObject::TimerObject(unsigned long int ms){
