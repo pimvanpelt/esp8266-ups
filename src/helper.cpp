@@ -24,7 +24,7 @@ static int upgrade(String url, bool wantreboot, _upgrade_type what)
 
   switch(ret) {
     case HTTP_UPDATE_FAILED:
-      Serial << "upgrade: HTTP_UPDATE_FAILED Error (%d): %s\r\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str();
+      Serial << "upgrade: HTTP_UPDATE_FAILED Error (" << ESPhttpUpdate.getLastError() << "): " << ESPhttpUpdate.getLastErrorString().c_str() << "\r\n";
       break;
     case HTTP_UPDATE_NO_UPDATES:
       Serial << "upgrade: HTTP_UPDATE_NO_UPDATES\r\n";
@@ -36,7 +36,7 @@ static int upgrade(String url, bool wantreboot, _upgrade_type what)
        Serial << "upgrade: Unknown return value " << ret << "\r\n";
   }
 
-  if (wantreboot) 
+  if (wantreboot && HTTP_UPDATE_OK==ret) 
     helper_reboot();
 
   return ret;
