@@ -60,6 +60,11 @@ void sensor_setup()  {
   }
   if (0 == num_adcunit)
     Serial << "sensor_setup: Whoops, no ADCUnits found - check your I2C bus!\r\n";
+
+  // Initialize timer
+  sensor_timer = new TimerObject(SENSOR_PERIOD);
+  sensor_timer->setOnTimer(&sensor_handle);
+  sensor_timer->Start();
 }
 
 static void sensor_output() 

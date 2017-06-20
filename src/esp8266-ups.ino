@@ -36,9 +36,6 @@ void setup()
   serial_setup();
 
   sensor_setup();
-  sensor_timer = new TimerObject(SENSOR_PERIOD);
-  sensor_timer->setOnTimer(&sensor_handle);
-  sensor_timer->Start();
 
   wifi_setup();
 
