@@ -1,12 +1,12 @@
 # Introduction
 
 This directory contains additional documentation and thoughts about this project.
-I have a bunch of 12V devices in his 19" rack at home -- largely [PC Engines](http://www.pcengines.ch/)
+I have a bunch of 12V devices in a 19" rack at home -- largely [PC Engines](http://www.pcengines.ch/)
 APU1/APU2, a cable modem, and some standalone NAS harddrives. To avoid a 
-small powerbrick for each of these (I counted 8 of them when I started this
-project), and because I find it a bit sad to use a 220V UPS to turn a
-battery into 220V, just to turn it back into 12V DC again by a powerbrick,
-I decided to consolidate.
+small battalion of powerbricks, one for each of these (I counted 8 of them
+when I started this project), and because I find it a bit sad to use a 220V
+UPS to turn a battery into 220V, just to turn it back into 12V DC again by
+a powerbrick, I decided to consolidate.
 
 ## Design
 
