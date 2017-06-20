@@ -1,7 +1,5 @@
 #include "config.h"
 
-extern TimerObject *sensor_timer;
-
 int wifi_setup()
 {
   int i;
@@ -34,11 +32,8 @@ int wifi_setup()
 void setup()
 {
   serial_setup();
-
   sensor_setup();
-
   wifi_setup();
-
   webserver_setup();
 }
 
@@ -46,5 +41,5 @@ void loop()
 {
   serial_handle();
   webserver_handle();
-  sensor_timer->Update();
+  sensor_handle();
 }

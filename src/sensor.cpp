@@ -8,10 +8,12 @@
 ADCUnit *adc_unit[ADCUNIT_MAX];
 uint8_t num_adcunit = 0;
 
-TimerObject *sensor_timer;
+TimerObject *_sensor_timer;
 static uint32_t sensor_count = 0;
 static uint64_t sensor_msec_total = 0;
 static uint32_t sensor_errors = 0;
+
+static void sensor_timer();
 
 void sensor_setup()  {
   int addr, unit;
@@ -62,9 +64,9 @@ void sensor_setup()  {
     Serial << "sensor_setup: Whoops, no ADCUnits found - check your I2C bus!\r\n";
 
   // Initialize timer
-  sensor_timer = new TimerObject(SENSOR_PERIOD);
-  sensor_timer->setOnTimer(&sensor_handle);
-  sensor_timer->Start();
+  _sensor_timer = new TimerObject(SENSOR_PERIOD);
+  _sensor_timer->setOnTimer(&sensor_timer);
+  _sensor_timer->Start();
 }
 
 static void sensor_output() 
@@ -208,7 +210,7 @@ static void sensor_sample()
   }
 }
 
-void sensor_handle() 
+static void sensor_timer() 
 {
   unsigned long _start = millis();
 
@@ -218,3 +220,9 @@ void sensor_handle()
   sensor_msec_total += millis() - _start;
   sensor_count++;
 }
+
+void sensor_handle() 
+{
+  _sensor_timer->Update();
+}
+
