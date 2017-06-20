@@ -10,10 +10,13 @@ a powerbrick, I decided to consolidate.
 
 ## Design
 
-I wanted to design a system that introspects the 12V power supply: input, output, battery,
-is not intrusive, meaning: if it doesn't work, it should "fail open" and simply provide
-power to the output ports. When powered/operational, I want to be able to switch off
-any given output port (briefly, not necessarily permanently).
+I wanted to design a system that introspects the 12V power supply: input, output,
+and battery. It must not be intrusive, meaning: if it doesn't work, it should
+"fail open" and simply provide power to the output ports. When powered/operational,
+I want to be able to switch off any given output port (briefly, not necessarily
+permanently), because every now and again I botch an update/upgrade on my
+APU servers, which cannot always be fixed by serial consoles. Rebooting brings
+me into the BIOS, and machines are almost ~always recoverable that way.
 
 ## Hardware
 
