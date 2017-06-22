@@ -19,6 +19,16 @@
 #define ADCIC_4V   3
 #define ADCIC_VDD  4
 
+// Map ADC values into sensible outputs (see the Eagle schematic)
+#define ADCUNIT_CURRENT_CHAN1     1    // AN1 - MAX471 Current Output Port 1
+#define ADCUNIT_CURRENT_CHAN2     2    // AN2 - MAX471 Current Output Port 2
+#define ADCUNIT_CURRENT_CHAN3     3    // AN3 - MAX471 Current Output Port 3
+#define ADCUNIT_VOLTAGE_OUTPUT    4    // AN4 - Voltage on UPS output
+#define ADCUNIT_VOLTAGE_BATTERY   5    // AN5 - Voltage on Battery
+#define ADCUNIT_VOLTAGE_INPUT     6    // AN6 - Voltage in Input (VCC)
+#define ADCUNIT_CURRENT_INPUT     7    // AN7 - ACS712 Current on Input (VCC)
+#define ADCUNIT_CURRENT_BATTERY   8    // AN8 - ACS712 Current on Battery
+
 class ADCIC : public TwoWire
 {
     public:

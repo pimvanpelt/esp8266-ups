@@ -93,17 +93,6 @@ static String sensor_metrics_unit(int unit)
   if (!adc_unit[unit])
     return ret;
 
-  // Map ADC values into sensible outputs
-  // From the Eagle schematic:
-  // adc_chan[0] - AN1 - MAX471 Current output port 1
-  // adc_chan[1] - AN2 - MAX471 Current output port 2
-  // adc_chan[2] - AN3 - MAX471 Current output port 3
-  // adc_chan[3] - AN4 - Voltage on UPS output
-  // adc_chan[4] - AN5 - Voltage on Battery
-  // adc_chan[5] - AN6 - Voltage in Input (VCC)
-  // adc_chan[6] - AN7 - ACS712 Current on Input (VCC)
-  // adc_chan[7] - AN8 - ACS712 Current on Battery
-
   for (int i=1; i<=3; i++) {
     ret += "current{adcunit=\"";
     ret += unit;
@@ -113,31 +102,32 @@ static String sensor_metrics_unit(int unit)
     ret += adc_unit[unit]->getAverage(i);
     ret += "\n";
   }
+
   ret += "current{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Input\"} ";
-  ret += adc_unit[unit]->getAverage(6);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_VOLTAGE_INPUT);
   ret += "\n";
   ret += "current{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Battery\"} ";
-  ret += adc_unit[unit]->getAverage(7);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_CURRENT_INPUT);
   ret += "\n";
 
   ret += "voltage{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Input\"} ";
-  ret += adc_unit[unit]->getAverage(5);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_VOLTAGE_INPUT);
   ret += "\n";
   ret += "voltage{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Battery\"} ";
-  ret += adc_unit[unit]->getAverage(4);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_VOLTAGE_BATTERY);
   ret += "\n";
   ret += "voltage{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Output\"} ";
-  ret += adc_unit[unit]->getAverage(3);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_VOLTAGE_OUTPUT);
   ret += "\n";
 
   for (int i=1; i<=3; i++) {
