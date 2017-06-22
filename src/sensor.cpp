@@ -106,12 +106,12 @@ static String sensor_metrics_unit(int unit)
   ret += "current{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Input\"} ";
-  ret += adc_unit[unit]->getAverage(ADCUNIT_VOLTAGE_INPUT);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_CURRENT_INPUT);
   ret += "\n";
   ret += "current{adcunit=\"";
   ret += unit;
   ret += "\",chan=\"Battery\"} ";
-  ret += adc_unit[unit]->getAverage(ADCUNIT_CURRENT_INPUT);
+  ret += adc_unit[unit]->getAverage(ADCUNIT_CURRENT_BATTERY);
   ret += "\n";
 
   ret += "voltage{adcunit=\"";
