@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="8.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5662,7 +5662,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <label x="195.58" y="129.54" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="VCC" class="0">
 <segment>
 <pinref part="VCC-IN" gate="G$1" pin="P"/>
 <pinref part="U$1" gate="G$1" pin="IP+@1"/>
@@ -5673,7 +5673,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <junction x="243.84" y="60.96"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="BATT" class="0">
 <segment>
 <pinref part="BATT-IN" gate="G$1" pin="P"/>
 <pinref part="U$2" gate="G$1" pin="IP+@1"/>
