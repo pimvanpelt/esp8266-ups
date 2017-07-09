@@ -97,15 +97,19 @@ controller board:
 
 *   1x board from http://oshpark.com/
 *   1x P012 analog to digital converter speaking I2C, see [ByVac](http://www.pichips.co.uk/index.php/P011_ADC) website
-*   D1: 1x Blue LED 0603
-*   D2,D3,D4: 3x Green LED 0603
-*   R1,R4,R5,R6,R8,R9,R10: 7x 1K resistor 0603
+*   D1: 1x Blue LED 0805 for PWR
+*   D2,D3,D4: 3x Green LED 0805 for Output 1-3
+*   R1-R7: 1K resistor 0805
+*   R11,R13,R15: 3k9 resistor 0805
+*   R17,R19,R21: 390R resistor 0805
+*   R18,R20,R22: 10k resistor 0805
 *   IC1,IC2,IC3: 3x MAX471CPA (3Amp)
 *   IC4,IC5: 2x ACS712-05B (5Amp bidirectional)
 *   IC6: 7805
-*   C1: 100 uF electrolytic capacitor
-*   C2: 10 uF electrolytic capacitor
-*   C3,C4: 100nF capacitor 0603
-*   C5,C6: 1nF capacitor 0603
-*   R21,R22,R23: 10KOhm trim potentiometer
+*   C1,C2: 10 uF Tantalum 0805 capacitor
+*   C3,C4: 100nF capacitor 0805
+*   C5,C6: 1nF capacitor 0805
+*   Q1,Q2,Q3: MMBT222A transistor
+*   K1,K2,K3: Shrack V23092-A1905-A301 Relay (Type C, 5VDC)
 *   J1: M04 dupont header
+*   J2-J9: 5mm screw terminal connectors
