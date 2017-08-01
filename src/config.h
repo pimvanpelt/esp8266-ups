@@ -24,6 +24,10 @@ template<class T> inline Print &operator <<(Print &obj, T arg) {
 #define UPDATE_FIRMWARE_URL    "http://ghoul.ipng.nl/fw/ESP8266-UPS/firmware.bin"
 #define UPDATE_SPIFFS_URL      "http://ghoul.ipng.nl/fw/ESP8266-UPS/spiffs.bin"
 
+struct {
+  uint16_t c1, c2, c3;
+} _calibration_t;
+
 // Forward declarations
 void sensor_setup();
 void sensor_handle();

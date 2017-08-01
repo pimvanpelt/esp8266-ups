@@ -39,20 +39,10 @@ void sensor_setup()  {
           delete(adc_unit[unit]);
           adc_unit[unit] = NULL;
         } else {
-/* Only call once! This is to set the P012 to default settings, including an
-   individual I2C address, so that we can have multiple on the bus.
-   Method:
-   1) Uncomment this and flash the firmware
-   2) Start the system with one (1) P012 attached.
-   3) EEPROM is written with the I2C address (0x34 is default, 0x33 her)
-   4) Flash the previous firmware, which has this next line commented
-   5) Power down the system (at least the P012), it will come up on the
-      new address.
-
-   TODO(pim): Make this a serial configurable, something like: 
-      setaddr <adcunit> <i2c_addr>
+/* TODO(pim): Make this a serial configurable, something like:
+   setaddr <adcunit> <i2c_addr>
 */
-//          adc_unit[unit]->Initialize_EEPROM(0x33);     
+          adc_unit[unit]->Initialize();
           unit++;
           num_adcunit++;
         }
@@ -72,7 +62,12 @@ void sensor_setup()  {
 static void sensor_output() 
 {
   static uint8_t i=0;
+  static uint8_t j=0;
   uint8_t unit;
+
+  j++;
+  if (j<10) return;
+  j=0;
 
   for(unit=0; unit<ADCUNIT_MAX; unit++) {
     if (adc_unit[unit]) {
@@ -205,7 +200,6 @@ static void sensor_timer()
   unsigned long _start = millis();
 
   sensor_sample();
-  sensor_output();
 
   sensor_msec_total += millis() - _start;
   sensor_count++;

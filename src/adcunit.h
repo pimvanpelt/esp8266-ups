@@ -100,9 +100,12 @@ class ADCUnit {
     uint16_t getVersion();
 
     // Write ADCUnit defaults to the P012
-    // Including the I2C address in case we want
-    // multiple chips on the bus.
-    void Initialize_EEPROM(uint8_t i2c_addr = 0x34);
+    void Initialize();
+
+    // Set the I2C address in case we want
+    // multiple chips on the bus. Note that a reset of the P012 is
+    // required after changing the I2C address.
+    void SetAddress(uint8_t i2c_addr = 0x34);
 
   private:
     uint16_t version;

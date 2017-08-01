@@ -212,10 +212,16 @@ uint16_t ADCUnit::getVersion()
  * adc.eeprom_write(14, 0x34);   
  */
 
-void ADCUnit::Initialize_EEPROM(uint8_t i2c_addr)
+void ADCUnit::Initialize()
 {
   adc->eeprom_write(16, 39);      // 5ms (39*128 == 4992us)
   adc->eeprom_write(17, 0);       // Use VREF pin
+}
+
+/* Note: setting I2C Address requires reboot of the chip
+ */
+void ADCUnit::SetAddress(uint8_t i2c_addr)
+{
   adc->eeprom_write(1, i2c_addr);
   adc->eeprom_write(14, i2c_addr);
 }
